@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sebastian Becker – Wing Tsun Curriculum Vitae</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --red:        #c0392b;
+  --red-light:  #e74c3c;
+  --red-pale:   #fdf2f1;
+  --gold:       #9a6f1e;
+  --gold-pale:  #fdf8ee;
+  --text:       #1a1a1a;
+  --muted:      #666;
+  --border:     #e4e4e4;
+  --card:       #fff;
+  --bg:         #f7f7f7;
+  --white:      #fff;
+}
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* ── PRINT ── */
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; color: #111; font-size: 12px; }
+  .hero { padding: 32px !important; }
+  section { break-inside: avoid; }
+}
+
+/* ── NAV ── */
+nav {
+  background: var(--white);
+  padding: 0.7rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.nav-brand { color: var(--text); font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+.nav-brand span { color: var(--red); }
+.nav-links { display: flex; gap: 0.2rem; }
+.nav-links a {
+  color: var(--muted); font-size: 0.78rem; padding: 0.3rem 0.8rem;
+  border-radius: 20px; text-decoration: none; font-weight: 500; transition: all 0.15s;
+}
+.nav-links a:hover { color: var(--text); background: var(--bg); }
+.btn-print {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: var(--red); border: 1px solid var(--red);
+  color: #fff; border-radius: 6px; padding: 0.3rem 0.85rem;
+  font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.15s;
+}
+.btn-print:hover { background: var(--red-light); border-color: var(--red-light); }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(160deg, var(--red) 0%, #8b1a10 100%);
+  padding: 64px 2rem 48px;
+  border-bottom: 1px solid var(--border);
+}
+.hero-inner {
+  max-width: 900px; margin: 0 auto;
+  display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap;
+}
+.avatar {
+  width: 130px; height: 130px; border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.5);
+  box-shadow: 0 0 0 6px rgba(255,255,255,0.15);
+  overflow: hidden; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.1);
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+.hero-text { flex: 1; min-width: 220px; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35);
+  color: #fff; font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.3rem 1rem; border-radius: 20px; margin-bottom: 1rem;
+}
+.hero h1 {
+  color: #fff; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800;
+  letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 0.3rem;
+}
+.hero-role { color: rgba(255,255,255,0.82); font-size: 1rem; font-weight: 400; margin-bottom: 1.2rem; }
+.hero-role strong { color: #fff; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; }
+.hero-meta span { color: rgba(255,255,255,0.72); font-size: 0.82rem; display: flex; align-items: center; gap: 0.4rem; }
+
+/* ── KPI ── */
+.kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap: 0.75rem; margin: 2rem 0; }
+.kpi {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1rem; text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.kpi-val { font-size: 1.5rem; font-weight: 800; color: var(--red); line-height: 1; }
+.kpi-lbl { font-size: 0.7rem; color: var(--muted); margin-top: 0.3rem; line-height: 1.3; }
+
+/* ── PAGE ── */
+.page { max-width: 900px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+/* ── SECTION ── */
+section { margin-bottom: 2.5rem; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--red);
+  border-left: 3px solid var(--red); padding-left: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+section h2 {
+  font-size: 1.35rem; font-weight: 800; color: var(--text);
+  margin-bottom: 1.2rem; letter-spacing: -0.01em;
+}
+.divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+/* ── GRADE TABLE ── */
+.grade-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+.grade-table th {
+  background: var(--bg); color: var(--muted);
+  padding: 0.5rem 0.9rem; text-align: left;
+  font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
+  border-bottom: 1px solid var(--border);
+}
+.grade-table td { padding: 0.55rem 0.9rem; border-bottom: 1px solid var(--border); vertical-align: middle; color: var(--text); }
+.grade-table tr:last-child td { border-bottom: none; }
+.grade-table tr:hover td { background: var(--bg); }
+.grade-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--red-pale); border: 2px solid var(--red);
+  color: var(--red); font-size: 0.75rem; font-weight: 800;
+}
+.grade-badge.gold { background: var(--gold-pale); border-color: var(--gold); color: var(--gold); }
+.date-chip { color: var(--muted); font-size: 0.78rem; white-space: nowrap; }
+.location-chip {
+  display: inline-block; padding: 0.1rem 0.5rem;
+  border-radius: 12px; font-size: 0.7rem; background: var(--bg);
+  color: var(--muted); border: 1px solid var(--border);
+}
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 1.6rem; }
+.timeline::before {
+  content: ''; position: absolute; left: 6px; top: 6px; bottom: 6px;
+  width: 2px; background: var(--border);
+}
+.tl-item { position: relative; margin-bottom: 1.5rem; }
+.tl-dot {
+  position: absolute; left: -1.6rem; top: 0.5rem;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--red); border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px var(--red);
+}
+.tl-dot.muted { background: var(--bg); box-shadow: 0 0 0 2px var(--border); }
+.tl-period { font-size: 0.72rem; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.15rem; }
+.tl-title { font-size: 0.97rem; font-weight: 700; color: var(--text); margin-bottom: 0.1rem; }
+.tl-org { font-size: 0.83rem; color: var(--muted); margin-bottom: 0.25rem; }
+.tl-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+
+/* ── SEMINAR CARDS ── */
+.seminar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 0.75rem; }
+.seminar-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1rem 1.2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.seminar-date { font-size: 0.7rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.2rem; }
+.seminar-title { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.15rem; }
+.seminar-sub { font-size: 0.78rem; color: var(--muted); }
+
+/* ── TAG ── */
+.tag { display: inline-block; padding: 0.15rem 0.55rem; border-radius: 12px; font-size: 0.68rem; font-weight: 700; white-space: nowrap; }
+.tag.red    { background: var(--red-pale); color: var(--red); border: 1px solid rgba(192,57,43,0.25); }
+.tag.gold   { background: var(--gold-pale); color: var(--gold); border: 1px solid rgba(154,111,30,0.25); }
+.tag.gray   { background: var(--bg); color: var(--muted); border: 1px solid var(--border); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--bg); color: var(--muted);
+  padding: 2rem; text-align: center; font-size: 0.8rem; line-height: 1.8;
+  border-top: 1px solid var(--border);
+}
+footer strong { color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="no-print">
+  <div class="nav-brand">🥋 <span>Wing Tsun</span> · Sebastian Becker</div>
+  <div class="nav-links">
+    <a href="#grade">Prüfungsgrade</a>
+    <a href="#stationen">Stationen</a>
+    <a href="#seminare">Seminare</a>
+  </div>
+  <button class="btn-print" onclick="window.print()">⬇ Drucken / PDF</button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="avatar">
+      <img src="../sebastian becker -wt.jpg" alt="Sebastian Becker">
+    </div>
+    <div class="hero-text">
+      <div class="hero-tag">🥋 Wing Tsun Curriculum Vitae · seit 1999</div>
+      <h1>Sebastian Becker</h1>
+      <div class="hero-role">Diplom-Biologe · <strong>Wing Tsun Praktizierender · 12. Schülergrad</strong></div>
+      <div class="hero-meta">
+        <span>📅 Jahrgang 1979</span>
+        <span>🏫 EWTO · Nr. 988591</span>
+        <span>📍 Bad Driburg</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- KPIs -->
+  <div class="kpi-row">
+    <div class="kpi"><div class="kpi-val">27</div><div class="kpi-lbl">Jahre Wing Tsun</div></div>
+    <div class="kpi"><div class="kpi-val">12.</div><div class="kpi-lbl">Schülergrad</div></div>
+    <div class="kpi"><div class="kpi-val">6+</div><div class="kpi-lbl">Schulen &amp; Trainer</div></div>
+    <div class="kpi"><div class="kpi-val">Trainer 1</div><div class="kpi-lbl">Lizenz seit 2020</div></div>
+    <div class="kpi"><div class="kpi-val">Kids WT</div><div class="kpi-lbl">Fortbildung 2022–2026</div></div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- PRÜFUNGSGRADE -->
+  <section id="grade">
+    <div class="section-label">01 · Prüfungsgrade</div>
+    <h2>Schülergrade (SG)</h2>
+
+    <table class="grade-table">
+      <thead>
+        <tr>
+          <th>Grad</th>
+          <th>Datum</th>
+          <th>Ort</th>
+          <th>Prüfer / Besonderheit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="grade-badge">1</div></td>
+          <td><span class="date-chip">31.01.1999</span></td>
+          <td><span class="location-chip">Hannover</span></td>
+          <td>Prüfer: <strong>GM Keith R. Kernspecht</strong> <span class="tag gold">Grandmaster</span></td>
+        </tr>
+        <tr>
+          <td><div class="grade-badge">2</div></td>
+          <td><span class="date-chip">15.05.1999</span></td>
+          <td><span class="location-chip">Hannover</span></td>
+          <td>Prüfer: <strong>Sifu Emin Boztepe</strong></td>
+        </tr>
+        <tr>
+          <td><div class="grade-badge">3</div></td>
+          <td><span class="date-chip">18.08.2001</span></td>
+          <td><span class="location-chip">Hannover</span></td>
+          <td>–</td>
+        </tr>
+        <tr>
+          <td><div class="grade-badge">4</div></td>
+          <td><span class="date-chip">14.04.2002</span></td>
+          <td><span class="location-chip">Hannover</span></td>
+          <td>–</td>
+        </tr>
+        <tr>
+          <td><div class="grade-badge">5</div></td>
+          <td><span class="date-chip">07.09.2002</span></td>
+          <td><span class="location-chip">Hannover</span></td>
+          <td>–</td>
+        </tr>
+        <tr>
+          <td><div class="grade-badge">6</div></td>
+          <td><span class="date-chip">23.08.2003</span></td>
+          <td><span class="location-chip">Hannover</span></td>
+          <td>–</td>
+        </tr>
+        <tr>
+          <td><div class="grade-badge">7</div></td>
+          <td><span class="date-chip">19.09.2004</span></td>
+          <td><span class="location-chip">Hannover</span></td>
+          <td>–</td>
+        </tr>
+        <tr>
+          <td><div class="grade-badge">8</div></td>
+          <td><span class="date-chip">13.12.2005</span></td>
+          <td><span class="location-chip">Seesen</span></td>
+          <td>–</td>
+        </tr>
+        <tr>
+          <td><div class="grade-badge">9</div></td>
+          <td><span class="date-chip">01.05.2006</span></td>
+          <td><span class="location-chip">Hannover</span></td>
+          <td>–</td>
+        </tr>
+        <tr>
+          <td><div class="grade-badge">10</div></td>
+          <td><span class="date-chip">02.06.2007</span></td>
+          <td><span class="location-chip">Seesen</span></td>
+          <td><span class="tag gold">ÜL wird gültig</span></td>
+        </tr>
+        <tr>
+          <td><div class="grade-badge">11</div></td>
+          <td><span class="date-chip">21.06.2008</span></td>
+          <td><span class="location-chip">Seesen</span></td>
+          <td>–</td>
+        </tr>
+        <tr>
+          <td><div class="grade-badge gold">12</div></td>
+          <td><span class="date-chip">06.11.2020</span></td>
+          <td><span class="location-chip">Seesen</span></td>
+          <td><span class="tag gold">Trainer 1 wird gültig</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr class="divider">
+
+  <!-- STATIONEN -->
+  <section id="stationen">
+    <div class="section-label">02 · Trainings­stationen</div>
+    <h2>Schulen &amp; Trainer</h2>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">04.10.1998</div>
+        <div class="tl-title">EWTO-Eintritt <span class="tag red">Mitglied Nr. 988591</span></div>
+        <div class="tl-org">European Wing Tsun Organisation</div>
+        <div class="tl-desc">Erstmaliger Eintritt in die EWTO.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">1998</div>
+        <div class="tl-title">WT Schule Hameln</div>
+        <div class="tl-org">EWTO · Sifu Turan Ataseven</div>
+        <div class="tl-desc">Beginn der Wing Tsun Praxis. Erste Prüfungen unter GM Kernspecht (1. SG) und Sifu Boztepe (2. SG).</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2000 · Braunschweig</div>
+        <div class="tl-title">Training bei Lutz Kramer</div>
+        <div class="tl-org">EWTO · Region Ataseven · 1. Techniker-Grad</div>
+        <div class="tl-desc">Nach Umzug nach Braunschweig. Lutz Kramer war in der Region Ataseven und hielt den ersten Techniker-Grad.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Braunschweig &amp; Peine</div>
+        <div class="tl-title">Training bei André Walther</div>
+        <div class="tl-org">EWTO · Sifu André Walther · Braunschweig &amp; Peine</div>
+        <div class="tl-desc">Schulwechsel zur Schule in der Braunschweiger Innenstadt bei Sifu André Walther und seinem damaligen Partner Özkan „Kaan" Yaman.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">ab 01.02.2007</div>
+        <div class="tl-title">WT Schule Göttingen · Guido Bähr</div>
+        <div class="tl-org">EWTO · Sifu Guido Bähr · 5. Praktiker-Grad · Prüfungen in Seesen</div>
+        <div class="tl-desc">Nach Umzug nach Göttingen. Guido Bähr hielt den 5. Praktiker-Grad. Prüfungen wurden in Seesen abgelegt. Teilnahme an Seminaren mit externen Sifus. 10. SG (02.06.2007) und 11. SG (21.06.2008) in Seesen.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">20.04.2010 – 31.01.2011</div>
+        <div class="tl-title">WT Schule Göttingen · Sifu Fenz</div>
+        <div class="tl-org">EWTO · (Schule heute geleitet von Tanja Fenz)</div>
+        <div class="tl-desc">Schulwechsel innerhalb Göttingens zu Sifu Fenz. Die Schule wird heute von seiner Frau Tanja geleitet.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">10/2016</div>
+        <div class="tl-title">EWTO-Austritt</div>
+        <div class="tl-org">European Wing Tsun Organisation</div>
+        <div class="tl-desc">Austritt aus der EWTO. Wechsel in den Cifci Wing Tsun Verband.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">ca. 2 Jahre · Hannover</div>
+        <div class="tl-title">WT Dynamics Hannover</div>
+        <div class="tl-org">Cifci Wing Tsun Verband · Matthias Meier (3. Techniker-Grad) · Rafet Yilmaz (Göttingen)</div>
+        <div class="tl-desc">Training bei Matthias Meier, gelegentlich auch mit Rafet Yilmaz aus Göttingen.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">01.09.2020</div>
+        <div class="tl-title">EWTO-Wiedereintritt <span class="tag red">Mitglied Nr. 988591</span></div>
+        <div class="tl-org">European Wing Tsun Organisation</div>
+        <div class="tl-desc">Rückkehr in die EWTO nach Zeit im Cifci WT Verband.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2020</div>
+        <div class="tl-title">WT Akademie Seesen</div>
+        <div class="tl-org">EWTO · Sifu Taman</div>
+        <div class="tl-desc">12. SG am 06.11.2020 in Seesen. Trainer-1-Lizenz erworben. GM Kernspecht beim Seminar 2020 und 2021 in Seesen persönlich getroffen.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2021 – Anfang 2023</div>
+        <div class="tl-title">WTplus Schule Paderborn · „WT to the max"</div>
+        <div class="tl-org">EWTO · Sifu My · inkl. Sifu Schrön, WTplus Akademie Bad Wildungen</div>
+        <div class="tl-desc">Training in Paderborn, Kennenlernen des Konzepts „WT to the max". Zusätzliches Training bei Sifu Schrön in der WTplus Akademie in Bad Wildungen. Trainingsende Anfang 2023.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot current" style="background:var(--red); box-shadow:0 0 0 2px var(--red);"></div>
+        <div class="tl-period">Anfang 2026 – heute</div>
+        <div class="tl-title">WT Schule <span class="tag red">aktuell</span></div>
+        <div class="tl-org">EWTO </div>
+        <div class="tl-desc">Wiederaufnahme des aktiven Trainings.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- WEITERE KAMPFSPORTARTEN -->
+  <section>
+    <div class="section-label">03 · Weitere Kampfsportarten</div>
+    <h2>Erfahrungen in anderen Disziplinen</h2>
+
+    <div class="seminar-grid">
+      <div class="seminar-card">
+        <div class="seminar-date">Braunschweig</div>
+        <div class="seminar-title">Wushu</div>
+        <div class="seminar-sub">bei Stefan Morawietz</div>
+      </div>
+      <div class="seminar-card">
+        <div class="seminar-date">Hameln</div>
+        <div class="seminar-title">Karate</div>
+        <div class="seminar-sub">–</div>
+      </div>
+      <div class="seminar-card">
+        <div class="seminar-date">Hameln</div>
+        <div class="seminar-title">Ju-Jutsu</div>
+        <div class="seminar-sub">–</div>
+      </div>
+      <div class="seminar-card">
+        <div class="seminar-date">Hameln</div>
+        <div class="seminar-title">Judo</div>
+        <div class="seminar-sub">–</div>
+      </div>
+      <div class="seminar-card">
+        <div class="seminar-date">Bad Driburg</div>
+        <div class="seminar-title">Krav Maga</div>
+        <div class="seminar-sub">–</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- SEMINARE & FORTBILDUNGEN -->
+  <section id="seminare">
+    <div class="section-label">03 · Seminare &amp; Fortbildungen</div>
+    <h2>Lizenzen, Seminare &amp; Qualifikationen</h2>
+
+    <div class="seminar-grid">
+
+      <div class="seminar-card">
+        <div class="seminar-date">02.06.2007 · Wiesenbach</div>
+        <div class="seminar-title">ÜL-Fortbildung</div>
+        <div class="seminar-sub">Übungsleiter-Fortbildung EWTO · gültig ab 10. SG</div>
+      </div>
+
+      <div class="seminar-card" style="border-color: rgba(154,111,30,0.35);">
+        <div class="seminar-date">31.10. – 01.11.2020 · Online</div>
+        <div class="seminar-title">Trainer 1 <span class="tag gold">Lizenz</span></div>
+        <div class="seminar-sub">EWTO Trainer-Lizenz Stufe 1 · gültig ab 06.11.2020 (12. SG)</div>
+      </div>
+
+      <div class="seminar-card">
+        <div class="seminar-date">23.10.2022 · Düsseldorf</div>
+        <div class="seminar-title">Kids WT Fortbildung</div>
+        <div class="seminar-sub">Kindertraining im Wing Tsun</div>
+      </div>
+
+      <div class="seminar-card">
+        <div class="seminar-date">21.09.2025 · Heidelberg</div>
+        <div class="seminar-title">Mission (Business) Seminar</div>
+        <div class="seminar-sub">1-tägiges Business-Seminar</div>
+      </div>
+
+      <div class="seminar-card">
+        <div class="seminar-date">2021 · Erfurt (?)</div>
+        <div class="seminar-title"><span style="color:var(--red); font-weight:800;">Magic Hands</span> Seminar</div>
+        <div class="seminar-sub">GM Kernspecht · Meisterin Natalie</div>
+      </div>
+
+      <div class="seminar-card">
+        <div class="seminar-date">2022 · Bad Wildungen</div>
+        <div class="seminar-title"><span style="color:var(--red); font-weight:800;">Magic Hands</span> Seminar</div>
+        <div class="seminar-sub">WTplus Akademie · GM Schrön</div>
+      </div>
+
+      <div class="seminar-card">
+        <div class="seminar-date">13.09.2025 · Kassel</div>
+        <div class="seminar-title"><span style="color:var(--red); font-weight:800;">Magic Hands</span> Seminar</div>
+        <div class="seminar-sub">Meisterin Natalie</div>
+      </div>
+
+      <div class="seminar-card" style="border-color: rgba(154,111,30,0.35);">
+        <div class="seminar-date">2024 · Detmold</div>
+        <div class="seminar-title">Übungsleiter Breitensport <span class="tag gold">Lizenz</span></div>
+        <div class="seminar-sub">KSB Lippe</div>
+      </div>
+
+      <div class="seminar-card" style="border-color: rgba(154,111,30,0.35);">
+        <div class="seminar-date">Februar 2026 · Online</div>
+        <div class="seminar-title">Kids WT Modul 1 <span class="tag gold">neu</span></div>
+        <div class="seminar-sub">Neues KidsWT-Curriculum</div>
+      </div>
+
+      <div class="seminar-card" style="border-color: rgba(192,57,43,0.4);">
+        <div class="seminar-date">April 2026 · Kiel</div>
+        <div class="seminar-title">Kids WT Modul 2 <span class="tag red">geplant</span></div>
+        <div class="seminar-sub">Neues KidsWT-Curriculum</div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:1.5rem; background:var(--gold-pale); border:1px solid rgba(154,111,30,0.25); border-radius:12px; padding:1.2rem 1.4rem; display:flex; align-items:flex-start; gap:0.8rem;">
+      <span style="font-size:1.3rem; flex-shrink:0;">🏅</span>
+      <div>
+        <div style="font-size:0.78rem; font-weight:700; color:var(--gold); margin-bottom:0.2rem; text-transform:uppercase; letter-spacing:0.06em;">Besondere Begegnungen</div>
+        <p style="font-size:0.85rem; color:var(--text); line-height:1.8;">
+          <strong style="color:var(--text);">GM Keith R. Kernspecht</strong> — Prüfer beim 1. SG (31.01.1999, Hannover) · Seminar Seesen 2020 und 2021<br>
+          <strong style="color:var(--text);">Sifu Emin Boztepe</strong> — Prüfer beim 2. SG (15.05.1999)<br>
+          <strong style="color:var(--text);">Sifu Turan Ataseven</strong> — 1999 · erster Sifu in Hameln<br>
+          <strong style="color:var(--text);">Sifu Rolle</strong> — 2003 · Greifswald<br>
+          <strong style="color:var(--text);">GM Schembri</strong> — 2007<br>
+          <strong style="color:var(--text);">GM König</strong> — 2007<br>
+          <strong style="color:var(--text);">Sifu Liebscher-Bracht</strong> — 2007<br>
+          <strong style="color:var(--text);">Sifu Matthias Gold</strong> — 2007<br>
+          <strong style="color:var(--text);">Sifu Uwe Kopplin</strong> — 2007 · Berlin (verstorben)<br>
+          <strong style="color:var(--text);">GM Schrön</strong> — 2022 · WTplus Akademie Bad Wildungen<br>
+          <strong style="color:var(--text);">Sifu Thommy Luke Böhlig</strong> — 2005 · Sommerlehrgang Schottland
+        </p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Sebastian Becker</strong> · Wing Tsun Erfahrung seit 1998 · 12. Schülergrad · Trainer 1<br>
+ · Bad Driburg <br>
+<span style="color:#333; font-size:0.72rem; margin-top:0.3rem; display:block;">Erstellt mit Herz für OWL</span>
+</footer>
+
+</body>
+</html>
