@@ -27,13 +27,7 @@ body {
   font-size: 15px;
 }
 
-/* ── PRINT ── */
-@media print {
-  .no-print { display: none !important; }
-  body { background: #fff; color: #111; font-size: 12px; }
-  .hero { padding: 32px !important; }
-  section { break-inside: avoid; }
-}
+
 
 /* ── NAV ── */
 nav {
@@ -52,13 +46,8 @@ nav {
   border-radius: 20px; text-decoration: none; font-weight: 500; transition: all 0.15s;
 }
 .nav-links a:hover { color: var(--text); background: var(--bg); }
-.btn-print {
-  display: flex; align-items: center; gap: 0.4rem;
-  background: var(--red); border: 1px solid var(--red);
-  color: #fff; border-radius: 6px; padding: 0.3rem 0.85rem;
-  font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.15s;
-}
-.btn-print:hover { background: var(--red-light); border-color: var(--red-light); }
+
+
 
 /* ── HERO ── */
 .hero {
